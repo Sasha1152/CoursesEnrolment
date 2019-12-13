@@ -1,8 +1,11 @@
 from django.db import models
-from users.models import User
+from users.models import UserProfile
 
 
 class Course(models.Model):
-    name = models.CharField(max_length=16)
-    code = models.CharField(max_length=16)
-    users = models.ManyToManyField(User, blank=True, related_name='courses')
+    name = models.CharField(max_length=16, unique=True)
+    code = models.CharField(max_length=16, unique=True)
+    users = models.ManyToManyField(UserProfile, blank=True, related_name='courses')
+
+    def __str__(self):
+        return f'{self.name}'
