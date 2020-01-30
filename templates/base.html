@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CoursesEnrolment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 class="d-block p-2 bg-primary text-white" style="text-align: center" onclick="window.location.href = '/'">LVIV IT ACADEMY</h1>
+    <div class="container">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <h4><a href="{% url 'courses_list' %}" class="badge badge-primary">courses</a></h4>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="Second group">
+                <h4><a href="{% url 'users_list' %}" class="badge badge-primary">users</a></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% block home %}{% endblock home%}
+        {% block courses %}{% endblock courses%}
+        {% block users %}{% endblock users%}
+    </div>
+</body>
+</html>

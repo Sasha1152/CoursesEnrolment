@@ -1,1 +1,44 @@
-{{users}}
+{% extends 'base.html' %}
+
+{% block courses%}
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="float: right;">
+    <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <form class="form-inline" style="float: right;">
+            <input class="form-control mr-sm-2" type="search" placeholder="type name" aria-label="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
+        </form>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-success">add user</button>
+    </div>
+</div>
+<h3 style="color: blue">USERS</h3>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.status }}</td>
+                <td>
+                    <button type="button" class="btn btn-success">edit</button>
+                    <button type="button" class="btn btn-danger">delete</button>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% block pagination %}{% endblock %}
+{% endblock courses%}
