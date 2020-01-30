@@ -1,6 +1,8 @@
 *.pyc
 __pycache__/
 .idea/
+temp/
 .env
-db.sqlite3
+*.sqlite3
 temp.py
+/.python-version
