@@ -7,6 +7,9 @@ class UserProfile(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=16)
 
+    class Meta:
+        db_table = "users_profiles"
+
     class UserStatus(Enum):
         active = 'Active'
         inactive = 'Inactive'
