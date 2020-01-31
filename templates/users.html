@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block courses%}
+{% block users %}
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="float: right;">
     <div class="btn-group mr-2" role="group" aria-label="Second group">
         <form class="form-inline" style="float: right;">
@@ -40,5 +41,5 @@
         {% endfor %}
     </tbody>
 </table>
-{% block pagination %}{% endblock %}
-{% endblock courses%}
+{% include 'pagination.html' %}
+{% endblock users %}
