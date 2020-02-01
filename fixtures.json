@@ -50,6 +50,16 @@
     }
   },
   {
+    "model": "users.UserProfile",
+    "pk": 6,
+    "fields": {
+      "name": "Alex Junior",
+      "email": "alexjun@gmail.com",
+      "phone": "+380119525445",
+      "status": "inactive"
+    }
+  },
+  {
     "model": "courses.Course",
     "pk": 1,
     "fields": {
