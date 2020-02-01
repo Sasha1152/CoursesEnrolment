@@ -19,22 +19,15 @@
     line-height: 1.42857;
 }
 </style>
+
 <body>
-    <h1 class="d-block p-2 bg-primary text-white" style="text-align: center" onclick="window.location.href = '/'">LVIV IT ACADEMY</h1>
-    <div class="container">
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-                <h4><a href="{% url 'courses_list' %}" class="badge badge-primary">courses</a></h4>
-            </div>
-            <div class="btn-group mr-2" role="group" aria-label="Second group">
-                <h4><a href="{% url 'users_list' %}" class="badge badge-primary">users</a></h4>
-            </div>
-        </div>
-    </div>
+    <h1 class="d-block p-2 bg-primary text-white" style="text-align: center;  margin-bottom: 10px;" onclick="window.location.href = '/'">LVIV IT ACADEMY</h1>
+
     <div class="container">
         {% block home %}{% endblock home%}
         {% block courses %}{% endblock courses%}
         {% block users %}{% endblock users%}
     </div>
 </body>
+
 </html>
