@@ -37,12 +37,21 @@
                 <td>{{ user.email }}</td>
                 <td>{{ user.status }}</td>
                 <td>
-                    <button type="button" class="btn btn-success btn-circle"> <i class="fas fa-feather-alt"></i> </button>
-                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash-alt"></i></button>
+                    <form class="form-check-inline" action=" " method="post">
+                        <button type="button" class="btn btn-success btn-circle" name="user_id" value="{{ user.id }}">
+                            <i class="fas fa-feather-alt"></i>
+                        </button>
+                    </form>
+                    <form class="form-check-inline" action="{% url 'delete_user' %}" method="post">
+                        <button type="submit" class="btn btn-danger btn-circle" name="user_id" value="{{ user.id }}">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
                 </td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
+
 {% include 'pagination.html' %}
 {% endblock users %}
