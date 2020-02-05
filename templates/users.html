@@ -1,1 +1,60 @@
-{{users}}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block users %}
+
+{% include 'users_courses_buttons.html' %}
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="float: right;">
+    <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <form class="form-inline" action=" " method="get">
+            <input class="form-control mr-sm-2" type="text" placeholder="type name" name="name" value="{{ name }}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-success">add user</button>
+    </div>
+</div>
+<h3 style="color: blue">USERS</h3>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.status }}</td>
+                <td>
+                    <form class="form-check-inline" action=" " method="post">
+                        <button type="button" class="btn btn-success btn-circle" name="user_id" value="{{ user.id }}">
+                            <i class="fas fa-feather-alt"></i>
+                        </button>
+                    </form>
+
+                    <button type="button"
+                            class="confirm-delete btn btn-danger btn-circle"
+                            data-toggle="modal"
+                            data-target="#confirmDeleteModal{{user.id}}">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    {% include 'modal_delete_confirm.html' %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% include 'pagination.html' %}
+{% endblock users %}

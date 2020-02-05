@@ -1,0 +1,107 @@
+[
+  {
+    "model": "users.UserProfile",
+    "pk": 1,
+    "fields": {
+      "name": "John",
+      "email": "john@gmail.com",
+      "phone": "+380223232666",
+      "status": "inactive"
+    }
+  },
+  {
+    "model": "users.UserProfile",
+    "pk": 2,
+    "fields": {
+      "name": "Alex",
+      "email": "alex@gmail.com",
+      "phone": "+380679525445",
+      "status": "active"
+    }
+  },
+  {
+    "model": "users.UserProfile",
+    "pk": 3,
+    "fields": {
+      "name": "Kate",
+      "email": "kate@gmail.com",
+      "phone": "+380670202333",
+      "status": "active"
+    }
+  },
+  {
+    "model": "users.UserProfile",
+    "pk": 4,
+    "fields": {
+      "name": "Antony",
+      "email": "antony@gmail.com",
+      "phone": "+380110102003",
+      "status": "active"
+    }
+  },
+  {
+    "model": "users.UserProfile",
+    "pk": 5,
+    "fields": {
+      "name": "Mary",
+      "email": "mary@gmail.com",
+      "phone": "+380010203444",
+      "status": "inactive"
+    }
+  },
+  {
+    "model": "users.UserProfile",
+    "pk": 6,
+    "fields": {
+      "name": "Alex Junior",
+      "email": "alexjun@gmail.com",
+      "phone": "+380119525445",
+      "status": "inactive"
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 1,
+    "fields": {
+      "name": "Pyhon Base",
+      "code": "P112233",
+      "users": [1, 3]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 2,
+    "fields": {
+      "name": "Pyhon Advance",
+      "code": "P112255",
+      "users": [2]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 3,
+    "fields": {
+      "name": "Java Base",
+      "code": "J220044",
+      "users": [2, 4]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 4,
+    "fields": {
+      "name": "HTML",
+      "code": "H558877",
+      "users": [1, 2, 3, 4, 5]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 5,
+    "fields": {
+      "name": "Golang",
+      "code": "G992211",
+      "users": [4]
+    }
+  }
+]

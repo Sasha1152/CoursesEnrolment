@@ -1,1 +1,30 @@
-{{courses}}
+{% extends 'base.html' %}
+
+{% block courses%}
+
+{% include 'users_courses_buttons.html' %}
+
+<h3 style="color: blue">COURSES</h3>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Code</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.id }}</td>
+                <td>{{ course.name }}</td>
+                <td>{{ course.code }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'pagination.html' %}
+{% endblock courses%}
