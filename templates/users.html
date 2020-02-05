@@ -9,7 +9,7 @@
     <div class="btn-group mr-2" role="group" aria-label="Second group">
         <form class="form-inline" action=" " method="get">
             <input class="form-control mr-sm-2" type="text" placeholder="type name" name="name" value="{{ name }}">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i> </button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
     <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -42,12 +42,14 @@
                             <i class="fas fa-feather-alt"></i>
                         </button>
                     </form>
-                    <form class="form-check-inline" action="{% url 'delete_user' %}" method="post">
-                        <button type="submit" class="btn btn-danger btn-circle" name="user_id" value="{{ user.id }}"
-                                onclick="return confirm('Are you sure you want to delete user {{ user.name }}?');">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </form>
+
+                    <button type="button"
+                            class="confirm-delete btn btn-danger btn-circle"
+                            data-toggle="modal"
+                            data-target="#confirmDeleteModal{{user.id}}">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    {% include 'modal_delete_confirm.html' %}
                 </td>
             </tr>
         {% endfor %}
