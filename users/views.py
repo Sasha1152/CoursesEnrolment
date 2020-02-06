@@ -18,11 +18,15 @@ def get_users_list(request):
 def delete_user(request):
     user_id = request.POST.get('user_id')
     user = UserProfile.objects.get(id=user_id)
-    print(user_id)
     user.delete()
     return HttpResponseRedirect(reverse('users_list'))
 
-# def delete_user(request):
-#     # data = json.loads(request.body.decode('utf-8'))
-#     print('MYPRINT: ', request.POST.get('user_id'))
-#     return HttpResponse(request.POST.get('user_id'))
+
+def update_user(request):
+    new_data_dict = request.POST.dict()
+    user = UserProfile.objects.get(id=new_data_dict['user_id'])
+    for key in new_data_dict:
+        if key in vars(user):
+            vars(user)[key] = new_data_dict[key]
+    user.save()
+    return HttpResponseRedirect(reverse('users_list'))
