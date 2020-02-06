@@ -1,6 +1,6 @@
 <!--Modal-->
 <div class="modal fade" id="confirmDeleteModal{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document" style="width: 350px; word-wrap: break-word;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="confirmDeleteModalLabel" style="color:red"><b>Attention!</b></h5>
@@ -13,7 +13,7 @@
         <p>This action is permanent!</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
         <form class="form-check-inline" action="{% url 'delete_user' %}" method="post">
             <button type="submit" class="btn btn-danger" name="user_id" value="{{ user.id }}">delete</button>
         </form>

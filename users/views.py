@@ -29,4 +29,12 @@ def update_user(request):
         if key in vars(user):
             vars(user)[key] = new_data_dict[key]
     user.save()
+    print(new_data_dict)
+    return HttpResponseRedirect(reverse('users_list'))
+
+
+def create_user(request):
+    data_user = request.POST.dict()
+    UserProfile.objects.create(**data_user)
+    print(data_user)
     return HttpResponseRedirect(reverse('users_list'))
