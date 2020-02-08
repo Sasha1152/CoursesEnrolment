@@ -3,16 +3,30 @@ from django.urls import reverse
 from . models import UserProfile
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 import json
+from courses.models import Course
 
 
 def get_users_list(request):
+    # for searching field:
     if request.GET:
         name = request.GET.get('name')
         users = UserProfile.objects.filter(name__contains=name)
+    # for showing all student:
     else:
         users = UserProfile.objects.all()
+    courses = Course.objects.all()
 
-    return render(request, 'users.html', {'users': users})
+    return render(request, 'users.html', {'users': users, 'courses': courses})
+
+
+# def get_user_courses(request):
+#     user_id = request.POST.get('user_id')
+#     user = UserProfile.objects.get(id=user_id)
+#     courses = user.courses.all()
+#     user_courses = [course.name for course in courses]
+#     print(user_courses)
+#     # return HttpResponse('OK')
+#     return render(request, 'users.html', {'user_courses': user_courses})
 
 
 def delete_user(request):
@@ -35,6 +49,11 @@ def update_user(request):
 
 def create_user(request):
     data_user = request.POST.dict()
-    UserProfile.objects.create(**data_user)
+    if 'courses' in data_user:
+        courses = Course.objects.filter(id=data_user['courses'])
+        print(courses[0].name)
+    else:
+        print('NO')
+    # UserProfile.objects.create(**data_user)
     print(data_user)
     return HttpResponseRedirect(reverse('users_list'))

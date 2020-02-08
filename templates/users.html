@@ -25,7 +25,8 @@
     <thead class="thead-light">
         <tr>
             <th style="width:6%">ID</th>
-            <th style="width:50%">Name</th>
+            <th style="width:40%">Name</th>
+            <th>Courses</th>
             <th>Email</th>
             <th style="width:10%">Status</th>
             <th style="width:10%">Action</th>
@@ -37,6 +38,15 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
+                <td>
+                    {% if user.courses.all %}
+                        {% for course in user.courses.all %}
+                            <div>{{ course }}</div>
+                        {% endfor %}
+                    {% else %}
+                        no courses
+                    {% endif %}
+                </td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.status }}</td>
                 <td>
