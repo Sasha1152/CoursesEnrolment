@@ -11,49 +11,65 @@
       </div>
         <form action="{% url 'create_user' %}" method="post">
         <div class="modal-body">
-            <div class="form-group">
-                <label class="control-label">Name:</label>
-                <input type="text" class="form-control" name="name" value="">
-                <small class="form-text text-muted">This field is required!</small>
-            </div>
+          <div class="form-group">
+            <label class="control-label">Name:</label>
+            <input type="text" class="form-control" name="name" value="">
+            <small class="form-text text-muted">This field is required!</small>
+          </div>
 
-            <div class="form-group">
-                <label class="control-label">E-mail:</label>
-                <input type="text" class="form-control" name="email" value="">
-                <small class="form-text text-muted">This field is required!</small>
-            </div>
+          <div class="form-group">
+            <label class="control-label">E-mail:</label>
+            <input type="text" class="form-control" name="email" value="">
+            <small class="form-text text-muted">This field is required!</small>
+          </div>
 
-            <div class="form-group">
-                <div class="d-inline-block">
-                    <label class="control-label">Phone:</label>
-                </div>
-                <div class="d-inline-block">
-                    <input type="text" class="form-control" name="phone" value="">
-                </div>
+          <div class="form-group">
+            <div class="d-inline-block">
+              <label class="control-label">Phone:</label>
             </div>
-
-            <div class="form-group">
-                <div class="d-inline-block">
-                    <label class="control-label d-inline">Status:</label>
-                </div>
-                <div class="d-inline-block">
-                    <select class="form-control d-inline" name="status" id="status">
-                        <option selected>inactive</option>
-                        <option>active</option>
-                    </select>
-                </div>
+            <div class="d-inline-block">
+              <input type="text" class="form-control" name="phone" value="">
             </div>
+          </div>
 
-            <div class="form-group">
-                <label class="col-form-label">Courses:</label>
-                <select class="form-control" name="courses" id="courses">
+          <div class="form-group">
+            <div class="d-inline-block">
+              <label class="control-label d-inline">Status:</label>
+            </div>
+            <div class="d-inline-block">
+              <select class="form-control d-inline" name="status" id="status">
+                <option selected>inactive</option>
+                <option>active</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-form-label d-block">Courses:</label>
+
+<!--Choice courses-->
+            <div id="coursesList">
+              <div class="box" style="margin-top:5px" id="div_1">
+                <div class="d-inline-block" style="width: 280px;">
+                  <select class="form-control" name="courses" id="courses">
                     <option value="none" selected disabled hidden>Select a course</option>
                     {% for course in courses %}
-                        <option value="{{ course.id }}">{{ course.name }}</option>
+                      <option value="{{ course.id }}">{{ course.name }}</option>
                     {% endfor %}
-                </select>
-                    <button type="button" class="btn-sm" style="margin-top:10px">add course</button>
+                  </select>
+                </div>
+                <div class="d-inline-block">
+                  <button type="button" class="btn-sm" onclick="removeCourse(this.parentNode.parentNode.id);">
+                    <span aria-hidden="true">-</span>
+                  </button>
+                </div>
+              </div>
             </div>
+
+            <span class="add">
+              <button onclick="addCourse();" type="button" class="btn-sm d-block" style="margin-top:10px">add course</button>
+            </span>
+          </div>
         </div>
 
         <div class="modal-footer">

@@ -49,11 +49,11 @@ def update_user(request):
 
 def create_user(request):
     data_user = request.POST.dict()
+    print(data_user)
     if 'courses' in data_user:
         courses = Course.objects.filter(id=data_user['courses'])
-        print(courses[0].name)
+        print(courses)
     else:
         print('NO')
     # UserProfile.objects.create(**data_user)
-    print(data_user)
     return HttpResponseRedirect(reverse('users_list'))
