@@ -3,9 +3,9 @@ from django.db import models
 
 
 class UserProfile(models.Model):
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=64)
     email = models.EmailField()
-    phone = models.CharField(max_length=16)
+    phone = models.CharField(blank=True, max_length=16)
 
     class Meta:
         db_table = "users_profiles"

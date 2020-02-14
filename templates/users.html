@@ -12,20 +12,24 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
+
+
     <div class="btn-group mr-2" role="group" aria-label="First group">
-        <button type="button" class="btn btn-success">add user</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">add user</button>
     </div>
+    {% include 'modal_create.html' %}
 </div>
 <h3 style="color: blue">USERS</h3>
 
-<table class="table">
+<table class="table" style="table-layout:fixed; width:100%; word-wrap:break-word;">
     <thead class="thead-light">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
+            <th style="width:6%">ID</th>
+            <th style="width:40%">Name</th>
+            <th>Courses</th>
             <th>Email</th>
-            <th>Status</th>
-            <th>Action</th>
+            <th style="width:10%">Status</th>
+            <th style="width:10%">Action</th>
         </tr>
     </thead>
 
@@ -34,22 +38,33 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
+                <td>
+                    {% if user.courses.all %}
+                        {% for course in user.courses.all %}
+                            <div>{{ course }}</div>
+                        {% endfor %}
+                    {% else %}
+                        no courses
+                    {% endif %}
+                </td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.status }}</td>
                 <td>
-                    <form class="form-check-inline" action=" " method="post">
-                        <button type="button" class="btn btn-success btn-circle" name="user_id" value="{{ user.id }}">
-                            <i class="fas fa-feather-alt"></i>
-                        </button>
-                    </form>
+                    <button type="button"
+                            class="btn btn-success btn-circle"
+                            data-toggle="modal"
+                            data-target="#updateModal{{user.id}}">
+                        <i class="fas fa-feather-alt"></i>
+                    </button>
 
                     <button type="button"
-                            class="confirm-delete btn btn-danger btn-circle"
+                            class="btn btn-danger btn-circle"
                             data-toggle="modal"
                             data-target="#confirmDeleteModal{{user.id}}">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                     {% include 'modal_delete_confirm.html' %}
+                    {% include 'modal_update.html' %}
                 </td>
             </tr>
         {% endfor %}
