@@ -19,16 +19,6 @@ def get_users_list(request):
     return render(request, 'users.html', {'users': users, 'courses': courses})
 
 
-# def get_user_courses(request):
-#     user_id = request.POST.get('user_id')
-#     user = UserProfile.objects.get(id=user_id)
-#     courses = user.courses.all()
-#     user_courses = [course.name for course in courses]
-#     print(user_courses)
-#     # return HttpResponse('OK')
-#     return render(request, 'users.html', {'user_courses': user_courses})
-
-
 def delete_user(request):
     user_id = request.POST.get('user_id')
     user = UserProfile.objects.get(id=user_id)
@@ -49,11 +39,12 @@ def update_user(request):
 
 def create_user(request):
     data_user = request.POST.dict()
-    print(data_user)
     if 'courses' in data_user:
-        courses = Course.objects.filter(id=data_user['courses'])
-        print(courses)
+        courses_id_list = request.POST.getlist('courses')
+        del data_user['courses']
+        user = UserProfile.objects.create(**data_user)
+        courses_list = Course.objects.filter(id__in=courses_id_list)
+        user.courses.set(courses_list)
     else:
-        print('NO')
-    # UserProfile.objects.create(**data_user)
+        UserProfile.objects.create(**data_user)
     return HttpResponseRedirect(reverse('users_list'))

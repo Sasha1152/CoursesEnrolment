@@ -1,4 +1,4 @@
-var firstCourse
+var removedCourse
 
 // add new input field with new id
 var counter = 1;
