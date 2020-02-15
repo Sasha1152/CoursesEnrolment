@@ -13,14 +13,14 @@
         <div class="modal-body">
           <div class="form-group">
             <label class="control-label">Name:</label>
-            <input type="text" class="form-control" name="name" value="">
             <small class="form-text text-muted">This field is required!</small>
+            <input type="text" class="form-control" name="name" value="">
           </div>
 
           <div class="form-group">
             <label class="control-label">E-mail:</label>
-            <input type="text" class="form-control" name="email" value="">
             <small class="form-text text-muted">This field is required!</small>
+            <input type="text" class="form-control" name="email" value="">
           </div>
 
           <div class="form-group">
@@ -37,7 +37,7 @@
               <label class="control-label d-inline">Status:</label>
             </div>
             <div class="d-inline-block">
-              <select class="form-control d-inline" name="status" id="status">
+              <select class="form-control d-inline" name="status">
                 <option selected>inactive</option>
                 <option>active</option>
               </select>
@@ -46,6 +46,7 @@
 
           <div class="form-group">
             <label class="col-form-label d-block">Courses:</label>
+            <small class="form-text text-muted">You can choose not more than three courses</small>
 
 <!--Choice courses-->
             <div id="coursesList">
@@ -66,17 +67,19 @@
               </div>
             </div>
 
-            <span class="add">
-              <button onclick="addCourse();" type="button" class="btn-sm d-block" style="margin-top:10px">add course</button>
-            </span>
+            <div id="addCourseButton">
+              <button onclick="addCourse();" type="button" class="btn-sm d-block" style="margin-top:10px" >
+                add course
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-          <button type="submit" class="btn btn-success">create</button>
-        </div>
-      </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+            <button type="submit" class="btn btn-success">create</button>
+          </div>
+        </form>
     </div>
   </div>
 </div>
