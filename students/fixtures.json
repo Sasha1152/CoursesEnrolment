@@ -1,6 +1,6 @@
 [
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 1,
     "fields": {
       "name": "John Lennon",
@@ -10,7 +10,7 @@
     }
   },
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 2,
     "fields": {
       "name": "Alec Baldwin",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 3,
     "fields": {
       "name": "Kate Moss",
@@ -30,7 +30,7 @@
     }
   },
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 4,
     "fields": {
       "name": "Anthony Hopkins",
@@ -40,7 +40,7 @@
     }
   },
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 5,
     "fields": {
       "name": "Mary Steenburgen",
@@ -50,7 +50,7 @@
     }
   },
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 6,
     "fields": {
       "name": "Brad Pitt",
@@ -60,7 +60,7 @@
     }
   },
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 7,
     "fields": {
       "name": "John Bon Jovi",
@@ -70,7 +70,7 @@
     }
   },
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 8,
     "fields": {
       "name": "Tom Hanks",
@@ -80,7 +80,7 @@
     }
   },
   {
-    "model": "users.UserProfile",
+    "model": "students.Student",
     "pk": 9,
     "fields": {
       "name": "VvvvvvveeeeeeerrrrrrryyyyyyLllllllloooooooonnnggggNnnnnnnaaaaaammmmmmeeee SssseeeecccccooooonnnndddddNnnnnnaaaaammmmeeeee",

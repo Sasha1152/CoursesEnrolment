@@ -2,15 +2,15 @@ from django.contrib import admin
 from .models import Course
 
 
-class UserInline(admin.TabularInline):
-    model = Course.users.through
+class StudentInline(admin.TabularInline):
+    model = Course.students.through
 
 
 class CourseAdmin(admin.ModelAdmin):
     inlines = [
-        UserInline,
+        StudentInline,
     ]
-    exclude = ('users',)
+    exclude = ('students',)
     list_display = ('id',
                     'name',
                     'code',

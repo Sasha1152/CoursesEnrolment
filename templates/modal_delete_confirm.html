@@ -1,5 +1,5 @@
 <!--Modal-->
-<div class="modal fade" id="confirmDeleteModal{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirmDeleteModal{{ student.id }}" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" style="width: 350px; word-wrap: break-word;">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,13 +9,13 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Do you really want to delete user <b>{{ user.name }}</b>?</p>
+        <p>Do you really want to delete student <b>{{ student.name }}</b>?</p>
         <p>This action is permanent!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-        <form class="form-check-inline" action="{% url 'delete_user' %}" method="post">
-            <button type="submit" class="btn btn-danger" name="user_id" value="{{ user.id }}">delete</button>
+        <form class="form-check-inline" action="{% url 'delete_student' %}" method="post">
+            <button type="submit" class="btn btn-danger" name="student_id" value="{{ student.id }}">delete</button>
         </form>
       </div>
     </div>

@@ -5,7 +5,7 @@
     "fields": {
       "name": "Pyhon Base",
       "code": "P112233",
-      "users": [1, 3]
+      "students": [1, 3]
     }
   },
   {
@@ -14,7 +14,7 @@
     "fields": {
       "name": "Pyhon Advance",
       "code": "P112255",
-      "users": [2, 6]
+      "students": [2, 6]
     }
   },
   {
@@ -23,7 +23,7 @@
     "fields": {
       "name": "Java Base",
       "code": "J220044",
-      "users": [2, 7]
+      "students": [2, 7]
     }
   },
   {
@@ -32,7 +32,7 @@
     "fields": {
       "name": "Java Advance",
       "code": "J220055",
-      "users": [4, 8]
+      "students": [4, 8]
     }
   },
   {
@@ -41,7 +41,7 @@
     "fields": {
       "name": "HTML, CSS",
       "code": "H558877",
-      "users": [1, 2, 3, 4, 5]
+      "students": [1, 2, 3, 4, 5]
     }
   },
   {
@@ -50,7 +50,7 @@
     "fields": {
       "name": "Golang",
       "code": "G992211",
-      "users": [6, 7, 8]
+      "students": [6, 7, 8]
     }
   },
   {
@@ -59,7 +59,7 @@
     "fields": {
       "name": "JavaScript Base",
       "code": "JS1511",
-      "users": [4, 5]
+      "students": [4, 5]
     }
   }
 ]
