@@ -48,7 +48,13 @@
                     {% endif %}
                 </td>
                 <td>{{ student.email }}</td>
-                <td>{{ student.status }}</td>
+                <td>
+                    {% if student.status == 'active' %}
+                        <p style="color:green">{{ student.status }}</p>
+                    {% else %}
+                        <p style="color:#dc3545">{{ student.status }}</p>
+                    {% endif %}
+                </td>
                 <td>
                     <button type="button"
                             class="btn btn-success btn-circle"
