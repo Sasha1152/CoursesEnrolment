@@ -52,7 +52,10 @@
             <div id="coursesList">
               <div class="box" style="margin-top:5px" id="div_1">
                 <div class="d-inline-block" style="width: 280px;">
-                  <select class="form-control" name="courses">
+                  <select class="form-control" name="courses"
+
+                          onfocus="refreshDropdownList(this.parentNode.parentNode.id)"
+                          onchange="addToChosenCourses(this.parentNode.parentNode.id)">
                     <option value="none" selected disabled hidden>Select a course</option>
                     {% for course in courses %}
                       <option value="{{ course.id }}">{{ course.name }}</option>
