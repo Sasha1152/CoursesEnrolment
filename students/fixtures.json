@@ -1,0 +1,92 @@
+[
+  {
+    "model": "students.Student",
+    "pk": 1,
+    "fields": {
+      "name": "John Lennon",
+      "email": "john@gmail.com",
+      "phone": "+380223232666",
+      "status": "inactive"
+    }
+  },
+  {
+    "model": "students.Student",
+    "pk": 2,
+    "fields": {
+      "name": "Alec Baldwin",
+      "email": "alex@gmail.com",
+      "phone": "+380679525445",
+      "status": "active"
+    }
+  },
+  {
+    "model": "students.Student",
+    "pk": 3,
+    "fields": {
+      "name": "Kate Moss",
+      "email": "kate@gmail.com",
+      "phone": "+380670202333",
+      "status": "active"
+    }
+  },
+  {
+    "model": "students.Student",
+    "pk": 4,
+    "fields": {
+      "name": "Anthony Hopkins",
+      "email": "antony@gmail.com",
+      "phone": "+380110102003",
+      "status": "active"
+    }
+  },
+  {
+    "model": "students.Student",
+    "pk": 5,
+    "fields": {
+      "name": "Mary Steenburgen",
+      "email": "mary@gmail.com",
+      "phone": "+380010203444",
+      "status": "inactive"
+    }
+  },
+  {
+    "model": "students.Student",
+    "pk": 6,
+    "fields": {
+      "name": "Brad Pitt",
+      "email": "brad@gmail.com",
+      "phone": "+380119525445",
+      "status": "inactive"
+    }
+  },
+  {
+    "model": "students.Student",
+    "pk": 7,
+    "fields": {
+      "name": "John Bon Jovi",
+      "email": "jbj@gmail.com",
+      "phone": "+151515",
+      "status": "active"
+    }
+  },
+  {
+    "model": "students.Student",
+    "pk": 8,
+    "fields": {
+      "name": "Tom Hanks",
+      "email": "tom@gmail.com",
+      "phone": "+38001002",
+      "status": "active"
+    }
+  },
+  {
+    "model": "students.Student",
+    "pk": 9,
+    "fields": {
+      "name": "VvvvvvveeeeeeerrrrrrryyyyyyLllllllloooooooonnnggggNnnnnnnaaaaaammmmmmeeee SssseeeecccccooooonnnndddddNnnnnnaaaaammmmeeeee",
+      "email": "vvvveeerrrryyyylllloooonnngggeeeemmaaaaiiill@gmail.com",
+      "phone": "+38001002",
+      "status": "active"
+    }
+  }
+]

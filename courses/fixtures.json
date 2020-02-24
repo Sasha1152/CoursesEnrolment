@@ -1,0 +1,65 @@
+[
+  {
+    "model": "courses.Course",
+    "pk": 1,
+    "fields": {
+      "name": "Pyhon Base",
+      "code": "P112233",
+      "students": [1, 3]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 2,
+    "fields": {
+      "name": "Pyhon Advance",
+      "code": "P112255",
+      "students": [2, 6]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 3,
+    "fields": {
+      "name": "Java Base",
+      "code": "J220044",
+      "students": [2, 7]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 4,
+    "fields": {
+      "name": "Java Advance",
+      "code": "J220055",
+      "students": [4, 8]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 5,
+    "fields": {
+      "name": "HTML, CSS",
+      "code": "H558877",
+      "students": [1, 2, 3, 4, 5]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 6,
+    "fields": {
+      "name": "Golang",
+      "code": "G992211",
+      "students": [6, 7, 8]
+    }
+  },
+  {
+    "model": "courses.Course",
+    "pk": 7,
+    "fields": {
+      "name": "JavaScript Base",
+      "code": "JS1511",
+      "students": [4, 5]
+    }
+  }
+]

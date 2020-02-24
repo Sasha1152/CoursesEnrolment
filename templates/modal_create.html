@@ -4,23 +4,23 @@
   <div class="modal-dialog" role="document" style="width: 350px;">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="createModalLabel" style="color:green"><b>Create User</b></h5>
+        <h5 class="modal-title" id="createModalLabel" style="color:green"><b>Create Student</b></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <form action="{% url 'create_user' %}" method="post">
+        <form action="{% url 'create_student' %}" method="post">
         <div class="modal-body">
           <div class="form-group">
             <label class="control-label">Name:</label>
-            <input type="text" class="form-control" name="name" value="">
             <small class="form-text text-muted">This field is required!</small>
+            <input type="text" class="form-control" name="name" value="">
           </div>
 
           <div class="form-group">
             <label class="control-label">E-mail:</label>
-            <input type="text" class="form-control" name="email" value="">
             <small class="form-text text-muted">This field is required!</small>
+            <input type="text" class="form-control" name="email" value="">
           </div>
 
           <div class="form-group">
@@ -32,26 +32,32 @@
             </div>
           </div>
 
+<!--Status radio buttons-->
           <div class="form-group">
-            <div class="d-inline-block">
-              <label class="control-label d-inline">Status:</label>
-            </div>
-            <div class="d-inline-block">
-              <select class="form-control d-inline" name="status" id="status">
-                <option selected>inactive</option>
-                <option>active</option>
-              </select>
+              <label class="control-label">Status:</label>
+
+            <div class="form-check-inline" style="margin-left:30px;">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="active">
+                <label class="form-check-label" for="inlineRadio1" style="color:green">active</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="inactive" checked="checked">
+                <label class="form-check-label" for="inlineRadio2" style="color:#dc3545">inactive</label>
+              </div>
             </div>
           </div>
 
+<!--Choice courses select fields-->
           <div class="form-group">
             <label class="col-form-label d-block">Courses:</label>
-
-<!--Choice courses-->
+            <small class="form-text text-muted">You can choose not more than three courses</small>
             <div id="coursesList">
               <div class="box" style="margin-top:5px" id="div_1">
                 <div class="d-inline-block" style="width: 280px;">
-                  <select class="form-control" name="courses" id="courses">
+                  <select class="form-control" name="courses"
+                          onfocus="refreshDropdownList(this.parentNode.parentNode.id)"
+                          onchange="addToChosenCourses(this.parentNode.parentNode.id)">
                     <option value="none" selected disabled hidden>Select a course</option>
                     {% for course in courses %}
                       <option value="{{ course.id }}">{{ course.name }}</option>
@@ -66,17 +72,19 @@
               </div>
             </div>
 
-            <span class="add">
-              <button onclick="addCourse();" type="button" class="btn-sm d-block" style="margin-top:10px">add course</button>
-            </span>
+            <div id="addCourseButton">
+              <button onclick="addCourse();" type="button" class="btn-sm d-block" style="margin-top:10px" >
+                add course
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-          <button type="submit" class="btn btn-success">create</button>
-        </div>
-      </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+            <button type="submit" class="btn btn-success">create</button>
+          </div>
+        </form>
     </div>
   </div>
 </div>

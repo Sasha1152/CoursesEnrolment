@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block users %}
+{% block students %}
 
-{% include 'users_courses_buttons.html' %}
+{% include 'students_courses_buttons.html' %}
 
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="float: right;">
     <div class="btn-group mr-2" role="group" aria-label="Second group">
@@ -15,11 +15,11 @@
 
 
     <div class="btn-group mr-2" role="group" aria-label="First group">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">add user</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">add student</button>
     </div>
     {% include 'modal_create.html' %}
 </div>
-<h3 style="color: blue">USERS</h3>
+<h3 style="color: blue">STUDENTS</h3>
 
 <table class="table" style="table-layout:fixed; width:100%; word-wrap:break-word;">
     <thead class="thead-light">
@@ -34,33 +34,39 @@
     </thead>
 
     <tbody>
-        {% for user in users %}
+        {% for student in students %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
                 <td>
-                    {% if user.courses.all %}
-                        {% for course in user.courses.all %}
+                    {% if student.courses.all %}
+                        {% for course in student.courses.all %}
                             <div>{{ course }}</div>
                         {% endfor %}
                     {% else %}
                         no courses
                     {% endif %}
                 </td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.status }}</td>
+                <td>{{ student.email }}</td>
+                <td>
+                    {% if student.status == 'active' %}
+                        <p style="color:green">{{ student.status }}</p>
+                    {% else %}
+                        <p style="color:#dc3545">{{ student.status }}</p>
+                    {% endif %}
+                </td>
                 <td>
                     <button type="button"
                             class="btn btn-success btn-circle"
                             data-toggle="modal"
-                            data-target="#updateModal{{user.id}}">
+                            data-target="#updateModal{{student.id}}">
                         <i class="fas fa-feather-alt"></i>
                     </button>
 
                     <button type="button"
                             class="btn btn-danger btn-circle"
                             data-toggle="modal"
-                            data-target="#confirmDeleteModal{{user.id}}">
+                            data-target="#confirmDeleteModal{{student.id}}">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                     {% include 'modal_delete_confirm.html' %}
@@ -72,4 +78,4 @@
 </table>
 
 {% include 'pagination.html' %}
-{% endblock users %}
+{% endblock students %}
