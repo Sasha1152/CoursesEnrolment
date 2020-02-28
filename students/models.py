@@ -5,10 +5,10 @@ from django.db import models
 class Student(models.Model):
     name = models.CharField(max_length=64)
     email = models.EmailField()
-    phone = models.CharField(blank=True, max_length=16)
+    phone = models.CharField(blank=True, max_length=18)
 
     class Meta:
-        db_table = "students_profiles"
+        db_table = "students"
 
     class StudentStatus(Enum):
         active = 'Active'

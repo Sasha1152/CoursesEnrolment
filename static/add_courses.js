@@ -1,3 +1,17 @@
+//////////////// type phone number //////////////////
+
+$(window).load(function()
+{
+   var phones = { "mask": "+38(0##) ###-##-##"};
+    $('#phoneNumberField').inputmask({
+        mask: phones,
+        greedy: false,
+        definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
+});
+
+
+//////////////// add courses dropdown fields //////////////////
+
 // temporary variable for storage last removed select div:
 var removedBox;
 // object that contain ID of chosen courses with appropriate div ID. e.g. {div_1: 1, div_2: 2, div_3: 3}:
