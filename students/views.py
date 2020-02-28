@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 import json
 from courses.models import Course
 
+context = {}
 
 def get_students_list(request):
     # for searching field:
@@ -15,8 +16,10 @@ def get_students_list(request):
     else:
         students = Student.objects.all()
     courses = Course.objects.all()
+    global context
+    context = {'students': students, 'courses': courses, 'student_created_successfully': None}
 
-    return render(request, 'students.html', {'students': students, 'courses': courses})
+    return render(request, 'students.html', context)
 
 
 def delete_student(request):
@@ -39,6 +42,7 @@ def update_student(request):
 
 def create_student(request):
     data_student = request.POST.dict()
+    print(data_student)
     if 'courses' in data_student:
         courses_id_list = request.POST.getlist('courses')
         del data_student['courses']
@@ -47,4 +51,7 @@ def create_student(request):
         student.courses.set(courses_list)
     else:
         Student.objects.create(**data_student)
-    return HttpResponseRedirect(reverse('students_list'))
+    global context
+    context['student_created_successfully'] = True
+
+    return render(request, 'students.html', context)

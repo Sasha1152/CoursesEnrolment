@@ -1,0 +1,28 @@
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#studentCreatedModal").modal('show');
+});
+
+$(document).ready(function(e) {
+  $('#studentCreatedModal').on('hidden.bs.modal', function(e) {
+    window.location.href = '{% url 'students_list' %}'
+  });
+});
+
+function redirectToStudentsList(){
+   window.location.href = "{% url 'students_list' %}";
+}
+
+setTimeout(redirectToStudentsList, 2500);
+</script>
+
+<!--Modal-->
+<div class="modal fade" id="studentCreatedModal" tabindex="-1" role="dialog" aria-labelledby="studentCreatedModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" style="width: 350px;">
+    <div class="modal-content">
+        <h5 class="modal-title" id="studentCreatedModalLabel" style="color:white; background-color:green; text-align:center;">
+          Student's profile created successfully!
+        </h5>
+    </div>
+  </div>
+</div>
