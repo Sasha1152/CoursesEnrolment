@@ -4,6 +4,7 @@ from . models import Student
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 import json
 from courses.models import Course
+from utils.validators import phone_validator, name_validator, email_validator
 
 context = {}
 
@@ -23,10 +24,14 @@ def get_students_list(request):
 
 
 def delete_student(request):
-    student_id = request.POST.get('student_id')
-    student = Student.objects.get(id=student_id)
-    student.delete()
-    return HttpResponseRedirect(reverse('students_list'))
+    print(request.POST)
+    try:
+        student_id = request.POST.get('student_id')
+        student = Student.objects.get(id=student_id)
+        student.delete()
+        return HttpResponseRedirect(reverse('students_list'))
+    except Student.DoesNotExist:
+        return HttpResponse("student doesn't exist")
 
 
 def update_student(request):
@@ -43,6 +48,17 @@ def update_student(request):
 def create_student(request):
     data_student = request.POST.dict()
     print(data_student)
+
+    # name validation:
+    if not name_validator(data_student.get('name')):
+        return HttpResponse('The name is not valid!', status=400)
+    # email validation:
+    if not email_validator(data_student.get('email')):
+        return HttpResponse('The email is not valid!')
+    # phone number validation:
+    if (data_student.get('phone') != '') and (not phone_validator(data_student.get('phone'))):
+        return HttpResponse('The phone number is not valid', status=400)
+    # check if a student has chosen any courses:
     if 'courses' in data_student:
         courses_id_list = request.POST.getlist('courses')
         del data_student['courses']
@@ -51,6 +67,7 @@ def create_student(request):
         student.courses.set(courses_list)
     else:
         Student.objects.create(**data_student)
+    # add flag for modal window appearing:
     global context
     context['student_created_successfully'] = True
 
