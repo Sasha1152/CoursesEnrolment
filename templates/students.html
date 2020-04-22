@@ -5,6 +5,11 @@
 
 {% include 'students_courses_buttons.html' %}
 
+{% if student_created_successfully %}
+    <h4>Student's profile created successfully!</h4>
+    {% include 'modal_student_created.html' %}
+{% endif %}
+
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="float: right;">
     <div class="btn-group mr-2" role="group" aria-label="Second group">
         <form class="form-inline" action=" " method="get">

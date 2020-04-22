@@ -1,6 +1,5 @@
 <!--Modal-->
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" style="width: 350px;">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,26 +8,33 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <form action="{% url 'create_student' %}" method="post">
+<!--        <form name="formStudentCreation" action="{% url 'create_student' %}" method="post" onsubmit="return validateForm()">-->
+        <form name="formStudentCreation" action="{% url 'create_student' %}" method="post" onsubmit="return validateForm()">
         <div class="modal-body">
+<!--Student's name field-->
           <div class="form-group">
-            <label class="control-label">Name:</label>
+            <label>Name:</label>
             <small class="form-text text-muted">This field is required!</small>
-            <input type="text" class="form-control" name="name" value="">
+            <input type="text" id="inputName" class="form-control" name="name" value="">
+            <small id="nameHint" style="color:red"></small>
           </div>
 
-          <div class="form-group">
-            <label class="control-label">E-mail:</label>
+<!--Email field-->
+          <div class="needs-validation form-group">
+            <label>E-mail:</label>
             <small class="form-text text-muted">This field is required!</small>
-            <input type="text" class="form-control" name="email" value="">
+            <input type="text" id="inputEmail" class="form-control" name="email" value="">
+            <small id="emailHint" style="color:red"></small>
           </div>
 
+<!--Phone number field-->
           <div class="form-group">
             <div class="d-inline-block">
               <label class="control-label">Phone:</label>
             </div>
             <div class="d-inline-block">
-              <input type="text" class="form-control" name="phone" value="">
+              <input type="text" id="inputPhone" class="form-control" name="phone" value="">
+              <small id="phoneHint" style="color:red"></small>
             </div>
           </div>
 
