@@ -3,7 +3,7 @@
 $(window).load(function()
 {
    var phones = { "mask": "+38(0##) ###-##-##"};
-    $('#phoneNumberField').inputmask({
+    $('#inputPhone').inputmask({
         mask: phones,
         greedy: false,
         definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
@@ -99,3 +99,68 @@ function refreshDropdownList(boxId) {
         };
     };
 };
+
+
+////////////////// form validation //////////////////////
+
+function validateForm() {
+    var name = document.forms["formStudentCreation"]["name"].value;
+    var regexName = /^[a-zA-Z\s-]*$/;
+    var email = document.forms["formStudentCreation"]["email"].value;
+    var regexEmail = /^\S+@\S+\.\S+$/;
+    var phone = document.forms["formStudentCreation"]["phone"].value;
+    var regexPhone = /^\+38\(0\d{2}\) \d{3}-\d{2}-\d{2}$/;
+    var statusName;
+    var statusEmail;
+    var statusPhone;
+
+    // name field validation:
+    if (name == "") {
+        document.getElementById("inputName").style.borderColor = "red";
+        document.getElementById("nameHint").style.color = "red";
+        document.getElementById("nameHint").innerHTML = "This field can't be empty!";
+        statusName = false;
+    } else if (regexName.test(name) === false) {
+        document.getElementById("inputName").style.borderColor = "red";
+        document.getElementById("nameHint").style.color = "red";
+        document.getElementById("nameHint").innerHTML = "The name should consist of only Latin letters, hyphens and spaces!";
+        statusName = false;
+    } else {
+        document.getElementById("inputName").style.borderColor = "green";
+        document.getElementById("nameHint").style.color = "green";
+        document.getElementById("nameHint").innerHTML = "Name is valid";
+        statusName = true;
+    };
+
+    // email field validation:
+    if (email == "") {
+        document.getElementById("inputEmail").style.borderColor = "red"
+        document.getElementById("emailHint").style.color = "red";
+        document.getElementById("emailHint").innerHTML = "This field can't be empty!";
+        statusEmail = false;
+    } else if (regexEmail.test(email) === false) {
+        document.getElementById("inputEmail").style.borderColor = "red";
+        document.getElementById("emailHint").style.color = "red";
+        document.getElementById("emailHint").innerHTML = "E-mail is not valid!";
+        statusEmail = false;
+    } else {
+        document.getElementById("inputEmail").style.borderColor = "green";
+        document.getElementById("emailHint").style.color = "green";
+        document.getElementById("emailHint").innerHTML = "E-mail is valid";
+        statusEmail = true;
+    };
+
+    // phone field validation:
+    if (phone == "" || regexPhone.test(phone)) {
+        document.getElementById("inputPhone").style.borderColor = null;
+        document.getElementById("phoneHint").innerHTML = null;
+        statusPhone = true;
+    } else {
+        document.getElementById("inputPhone").style.borderColor = "red";
+        document.getElementById("phoneHint").innerHTML = "Phone number is not valid!";
+        statusPhone = false;
+    };
+
+//    document.getElementById("studentCreatedModal").showModal();
+    return statusName && statusEmail && statusPhone;
+}

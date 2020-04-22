@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 $(document).ready(function(e) {
   $('#studentCreatedModal').on('hidden.bs.modal', function(e) {
-    window.location.href = '{% url 'students_list' %}'
+    window.location.href = '{% url 'create_student' %}'
   });
 });
 
