@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "name": "Pyhon Base",
-      "code": "P112233",
+      "code": "P11223",
       "students": [1, 3]
     }
   },
@@ -13,7 +13,7 @@
     "pk": 2,
     "fields": {
       "name": "Pyhon Advance",
-      "code": "P112255",
+      "code": "P11225",
       "students": [2, 6]
     }
   },
@@ -22,7 +22,7 @@
     "pk": 3,
     "fields": {
       "name": "Java Base",
-      "code": "J220044",
+      "code": "J22004",
       "students": [2, 7]
     }
   },
@@ -31,7 +31,7 @@
     "pk": 4,
     "fields": {
       "name": "Java Advance",
-      "code": "J220055",
+      "code": "J22005",
       "students": [4, 8]
     }
   },
@@ -40,7 +40,7 @@
     "pk": 5,
     "fields": {
       "name": "HTML, CSS",
-      "code": "H558877",
+      "code": "H55887",
       "students": [1, 2, 3, 4, 5]
     }
   },
@@ -49,7 +49,7 @@
     "pk": 6,
     "fields": {
       "name": "Golang",
-      "code": "G992211",
+      "code": "G99221",
       "students": [6, 7, 8]
     }
   },
